@@ -206,7 +206,7 @@ multilevelannotation <- function(dataA,
     suppressWarnings(dir.create(outloc))
     setwd(outloc)
 
-    if (queryadductlist == "all" & mode == "pos") {
+    if ((queryadductlist == "all")[1] & mode == "pos") {
         adduct_names <- adduct_table$Adduct[(adduct_table$Type ==
                                                  "S" &
                                                  adduct_table$Mode == "positive") | (adduct_table$Type ==
@@ -216,7 +216,7 @@ multilevelannotation <- function(dataA,
                                                adduct_names),]
 
     } else {
-        if (queryadductlist == "all" & mode == "neg") {
+        if ((queryadductlist == "all")[1] & mode == "neg") {
             adduct_names <- adduct_table$Adduct[(adduct_table$Type ==
                                                      "S" & adduct_table$Mode == "negative") |
                                                     (adduct_table$Type == gradienttype &
@@ -440,7 +440,7 @@ multilevelannotation <- function(dataA,
             dataA <- dataA[, c(1:2)]
 
 
-            if (queryadductlist == "all" & mode == "pos") {
+            if ((queryadductlist == "all")[1] & mode == "pos") {
                 adduct_names <- adduct_table$Adduct[(adduct_table$Type ==
                                                          "S" & adduct_table$Mode == "positive") |
                                                         (adduct_table$Type == gradienttype &
@@ -452,7 +452,7 @@ multilevelannotation <- function(dataA,
                                            adduct_names),]
 
             } else {
-                if (queryadductlist == "all" & mode == "neg") {
+                if ((queryadductlist == "all")[1] & mode == "neg") {
                     adduct_names <- adduct_table$Adduct[(adduct_table$Type ==
                                                              "S" & adduct_table$Mode == "negative") |
                                                             (
@@ -1101,7 +1101,7 @@ multilevelannotation <- function(dataA,
 
                 rm(l2)
 
-                if (nrow(levelB_res) < 1) {
+                if (is.null(levelB_res) | nrow(levelB_res) < 1) {
                     stop("No matches found.")
                 }
 

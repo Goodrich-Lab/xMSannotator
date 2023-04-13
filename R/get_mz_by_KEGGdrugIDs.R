@@ -9,7 +9,7 @@ get_mz_by_KEGGdrugIDs <- function(keggIDs, queryadductlist = c("M+H"),
     
     # adduct_table<-read.table('/Users/karanuppal/Documents/Emory/JonesLab/Projects/xMSannotator/adduct_table.txt',sep='\t',header=TRUE)
     # adduct_table<-adduct_table[c(which(adduct_table[,6]=='S'),which(adduct_table[,6]=='Acetonitrile')),]
-    if (is.na(adduct_table) == TRUE) {
+    if (sum(is.na(adduct_table)) != 0) {
         data(adduct_table)
     } else {
         

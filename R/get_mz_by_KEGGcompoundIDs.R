@@ -19,7 +19,7 @@ get_mz_by_KEGGcompoundIDs <- function(keggIDs, queryadductlist = c("M+H"),
     cnames <- c("mz", "chemical_ID", "Name", "Formula", "MonoisotopicMass", 
         "Adduct", "AdductMass")
     
-    if (is.na(adduct_table) == TRUE) {
+    if (sum(is.na(adduct_table)) != 0) {
         rm(adduct_table)
         data(adduct_table)
         adduct_table <- as.data.frame(adduct_table)

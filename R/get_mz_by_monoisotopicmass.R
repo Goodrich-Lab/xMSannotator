@@ -22,7 +22,7 @@ get_mz_by_monoisotopicmass <- function(monoisotopicmass,
         "Adduct", "AdductMass")
     
     
-    if (is.na(adduct_table) == TRUE) {
+    if (sum(is.na(adduct_table)) != 0) {
         
         try(rm(adduct_table), silent = TRUE)
     }
