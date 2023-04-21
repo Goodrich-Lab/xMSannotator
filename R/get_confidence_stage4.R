@@ -441,10 +441,10 @@ get_confidence_stage4 <- function(curdata, max_diff_rt, adduct_weights = NA,
                       if (length(high_charge_ind) > 0) {
                         abund_ratio_min_maxcharge <- max(curdata$mean_int_vec[min_charge_ind])[1]/max(curdata$mean_int_vec[high_charge_ind])[1]
                         
-                        if ((abund_ratio_min_maxcharge < 
-                          1)) {
-                          
-                          
+                        if(is.nan(abund_ratio_min_maxcharge)) {
+                          chemscoremat_conf_levels <- "Low"
+                        }else if ((abund_ratio_min_maxcharge < 
+                                   1)) {
                           chemscoremat_conf_levels <- "Low"
                         }
                         
